@@ -3,13 +3,15 @@
 import React from 'react';
 
 import { Deck } from '../Deck/Deck';
+import { Board } from '../Board/Board';
 
 
 // COMPONENT
 
 const HomePage = () => (
   <main>
-    <Deck />
+    <Board />
+    {/* <Deck /> */}
   </main>
 );
 

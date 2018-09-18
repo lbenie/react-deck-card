@@ -10,14 +10,14 @@ export const DEAL_ONE_CARD_PENDING = 'DEAL_ONE_CARD_PENDING';
 export const DEAL_ONE_CARD_FULFILLED = 'DEAL_ONE_CARD_FULFILLED';
 export const DEAL_ONE_CARD_REJECTED = 'DEAL_ONE_CARD_REJECTED';
 
-const shuffleDeckAction = () => ({
+const shuffleDeckAction = deck => ({
   type: SHUFFLE_CARDS,
-  payload: shuffleDeck()
+  payload: shuffleDeck(deck)
 });
 
-const dealOneCardAction = () => ({
+const dealOneCardAction = deck => ({
   type: DEAL_ONE_CARD,
-  payload: dealOneCard()
+  payload: dealOneCard(deck)
 });
 
 

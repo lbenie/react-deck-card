@@ -1,9 +1,9 @@
 const simulateError = false;
 
 const shuffle = deck => {
-  let result = [];
+  let result = [].concat(deck);
 
-  let counter = deck.length;
+  let counter = result.length;
   let temp;
   let index;
 
@@ -12,8 +12,8 @@ const shuffle = deck => {
 
     counter--;
 
-    temp = deck[counter];
-    result[counter] = deck[index];
+    temp = result[counter];
+    result[counter] = result[index];
     result[index] = temp;
   }
 
