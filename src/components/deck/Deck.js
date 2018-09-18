@@ -1,17 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchCards } from '../state/actions/CardActions';
-import { Card } from '../Card/Card';
-import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
-import { Error } from '../shared/Error/Error';
+import { LoadingIndicator } from '../shared/loadingIndicator/LoadingIndicator';
+import { Error } from '../shared/error/Error';
 
-
-const renderCards = cards => (
-  cards.map(({suit, value}, index) => <Fragment key={index}><Card  suit={suit} value={value} /></Fragment>)
-);
 
 class Deck extends Component {
   constructor(props) {
@@ -26,9 +21,19 @@ class Deck extends Component {
     return (
       <div>
         { this.props.fetched && (
-          <Fragment>
-            {renderCards(this.props.cards)}
-          </Fragment>
+          <div className="row">
+            <p>Deck</p>
+            <div className="col">
+              <div className="deck">
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+              </div>
+
+            </div>
+          </div>
         )}
         {
           <LoadingIndicator busy={this.props.fetching} />

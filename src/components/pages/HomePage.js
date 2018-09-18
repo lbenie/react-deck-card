@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { Deck } from '../Deck/Deck';
 import { Board } from '../Board/Board';
 
 
@@ -11,7 +10,6 @@ import { Board } from '../Board/Board';
 const HomePage = () => (
   <main>
     <Board />
-    {/* <Deck /> */}
   </main>
 );
 

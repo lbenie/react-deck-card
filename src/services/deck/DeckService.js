@@ -21,9 +21,10 @@ const shuffle = deck => {
 };
 
 const deal = deck => {
-  const result = [].concat(deck).splice(Math.floor(Math.random() * deck.length), 1);
+  const newDeck = [].concat(deck);
+  const [pick] = newDeck.splice(Math.floor(Math.random() * deck.length), 1);
 
-  return result;
+  return {deck: newDeck, pick};
 };
 
 export const shuffleDeck = deck => {

@@ -11,7 +11,7 @@ import { basestate } from './baseState';
 
 const initialState = {
   deck: [],
-  picked: {},
+  pick: {},
   ...basestate
 };
 
@@ -21,7 +21,7 @@ export const DeckReducer = (state = initialState, action) => {
       return {
         ...state,
         ...basestate,
-        picked: {},
+        pick: {},
         fetching: true
       };
 
@@ -29,7 +29,8 @@ export const DeckReducer = (state = initialState, action) => {
       return {
         ...state,
         ...basestate,
-        picked: action.payload,
+        pick: action.payload.pick,
+        deck: action.payload.deck,
         fetched: true
       };
 
@@ -37,7 +38,7 @@ export const DeckReducer = (state = initialState, action) => {
       return {
         ...state,
         ...basestate,
-        picked: {},
+        pick: {},
         failed: true
       };
 
