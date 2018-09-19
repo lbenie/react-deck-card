@@ -1,5 +1,8 @@
-@import 'settings.scss';
-@import 'base.scss';
-@import './components/header.scss';
-@import './components/card.scss';
-@import './components/deck.scss';
+@import 'variables';
+@import 'settings';
+@import 'base';
+@import 'bootstrap-overrides';
+@import './components/header';
+@import './components/card';
+@import './components/deck';
+@import './components/landingPage';

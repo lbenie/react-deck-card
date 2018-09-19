@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchCards } from '../state/actions/CardActions';
+import { fetchCards } from '../state/actions/DeckActions';
 import { LoadingIndicator } from '../shared/loadingIndicator/LoadingIndicator';
 import { Error } from '../shared/error/Error';
 
@@ -31,7 +31,6 @@ class Deck extends Component {
                 <div className="card"></div>
                 <div className="card"></div>
               </div>
-
             </div>
           </div>
         )}
@@ -51,13 +50,13 @@ Deck.propTypes = {
   fetched: PropTypes.bool.isRequired,
   fetching: PropTypes.bool.isRequired,
   failed: PropTypes.bool,
-  cards: PropTypes.array.isRequired
+  deck: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {
-  const { fetching, fetched, failed, cards } = state.cards;
+  const { fetching, fetched, failed, deck } = state.deck;
 
-  return { fetching, fetched, failed, cards };
+  return { fetching, fetched, failed, deck };
 };
 
 const mapDispatchToProps = dispatch => (

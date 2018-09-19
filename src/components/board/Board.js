@@ -16,17 +16,21 @@ class Board extends Component {
   render() {
     return (
       <Fragment>
-        <div className="row">
-          <div className="col">
-            <button className="btn btn-outline-primary" type="button" onClick={() => {this.props.shuffleDeck(this.props.cards);}}>Shuffle</button>
+        <div className="container pt-5">
+          <div className="row mx-auto">
+            <div className="col d-flex justify-content-center">
+              <button className="btn btn-outline-game mr-2" type="button" onClick={() => {this.props.shuffleDeck(this.props.deck);}}>Shuffle</button>
+              <button className="btn btn-outline-game" type="button" onClick={() => {this.props.dealOneCard(this.props.deck);}}>Deal One Card</button>
+            </div>
           </div>
-          <div className="col">
-            <button className="btn btn-outline-primary" type="button" onClick={() => {this.props.dealOneCard(this.props.deck);}}>Deal One Card</button>
-          </div>
-        </div>
-        <Deck />
-        <div className="row">
-          <Card suit={this.props.pick.suit} value={this.props.pick.value} />
+          <Deck />
+          {
+            this.props.pick && this.props.pick.suit && (
+              <div className="row">
+                <Card suit={this.props.pick.suit} value={this.props.pick.value} />
+              </div>
+            )
+          }
         </div>
       </Fragment>
     );
@@ -39,16 +43,14 @@ Board.propTypes = {
   fetched: PropTypes.bool.isRequired,
   fetching: PropTypes.bool.isRequired,
   failed: PropTypes.bool,
-  cards: PropTypes.array.isRequired,
-  deck: PropTypes.array,
+  deck: PropTypes.array.isRequired,
   pick: PropTypes.object,
 };
 
 const mapStateToProps = state => {
-  const { cards } = state.cards;
-  const { deck, fetching, fetched, failed, pick } = state.deck;
+  const { deck, fetching, fetched, failed, pick, picks } = state.deck;
 
-  return { fetching, fetched, failed, cards, deck, pick };
+  return { fetching, fetched, failed, deck, pick, picks };
 };
 
 const mapDispatchToProps = dispatch => (

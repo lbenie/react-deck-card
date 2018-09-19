@@ -7,8 +7,6 @@ import { AppRouter } from './routers/AppRouter';
 
 export const App = () => (
   <Provider store={createAppStore()}>
-    <div className="container">
-      <AppRouter />
-    </div>
+    <AppRouter />
   </Provider>
 );

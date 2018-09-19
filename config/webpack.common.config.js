@@ -39,7 +39,7 @@ const config = {
               loader: 'sass-loader'
             }
           ]
-        })                
+        })
         //exclude: /node_modules/
       },
       {
@@ -63,7 +63,12 @@ const config = {
       favicon: commonPaths.favicon,
       inject: true
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      'images': '../../src/images'
+    }
+  }
 };
 
 module.exports = config;
