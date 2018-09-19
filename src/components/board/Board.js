@@ -7,7 +7,7 @@ import { Card } from '../card/Card';
 import { CardsPicked } from '../card/CardsPicked';
 
 import { dealOneCard, shuffleDeck } from '../state/actions/DeckActions';
-import { LoadingIndicator } from '../shared/loadingIndicator/LoadingIndicator';
+import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 
 class Board extends Component {
   constructor(props) {
