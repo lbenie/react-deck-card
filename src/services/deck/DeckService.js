@@ -55,20 +55,24 @@ export const getCards = () => {
 
 export const shuffleDeck = deck => {
   return new Promise((resolve, reject) => {
-    if (simulateError) {
-      reject('Failed to shuffle deck');
-    } else {
-      resolve(shuffle(deck));
-    }
+    setTimeout(() => {
+      if (simulateError) {
+        reject('Failed to shuffle deck');
+      } else {
+        resolve(shuffle(deck));
+      }
+    }, 500);
   });
 };
 
 export const dealOneCard = deck => {
   return new Promise((resolve, reject) => {
-    if (simulateError) {
-      reject('Failed to shuffle deck');
-    } else {
-      resolve(deal(deck));
-    }
+    setTimeout(() => {
+      if (simulateError) {
+        reject('Failed to shuffle deck');
+      } else {
+        resolve(deal(deck));
+      }
+    }, 250);
   });
 };

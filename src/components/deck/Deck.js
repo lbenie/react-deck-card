@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchCards } from '../state/actions/DeckActions';
-import { LoadingIndicator } from '../shared/loadingIndicator/LoadingIndicator';
-import { Error } from '../shared/error/Error';
-
 
 class Deck extends Component {
   constructor(props) {
@@ -22,24 +19,30 @@ class Deck extends Component {
       <div>
         { this.props.fetched && (
           <div className="row">
-            <p>Deck</p>
+            <div className="col-1">
+              <p>Deck</p>
+            </div>
             <div className="col">
               <div className="deck">
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
+                {
+                  this.props.deck.length === 52 && <div className="card"></div>
+                }
+                {
+                  this.props.deck.length > 39 && <div className="card"></div>
+                }
+                {
+                  this.props.deck.length > 26 && <div className="card"></div>
+                }
+                {
+                  this.props.deck.length > 13 && <div className="card"></div>
+                }
+                {
+                  this.props.deck.length > 0 && <div className="card"></div>
+                }
               </div>
             </div>
           </div>
         )}
-        {
-          <LoadingIndicator busy={this.props.fetching} />
-        }
-        {
-          this.props.failed && <Error message="Failed to fetch list of cards" />
-        }
       </div>
     );
   }
