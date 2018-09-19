@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Deck } from '../deck/Deck';
+import { DeckList } from '../deck/DeckList';
 import { Card } from '../card/Card';
 import { CardsPicked } from '../card/CardsPicked';
 
@@ -40,6 +41,7 @@ class Board extends Component {
           <div className="row pt-5">
             <div className="col">
               <Deck />
+              <DeckList cards={this.props.deck}/>
             </div>
             <div className="col">
               {

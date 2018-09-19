@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const isBlack = suit => suit === '♣︎' || suit === '♠︎';
+import { isBlack } from './utils';
 
 export const Card = (props) => {
   return (

@@ -1,30 +1,27 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { isBlack } from './utils';
+import { isBlack } from '../card/utils';
 
-export const CardsPicked = (props) => {
+export const DeckList = (props) => {
   const lis = props.cards.map(({suit, value}, index) => <li className={'list-group-item d-flex justify-content-between align-items-center ' + (isBlack(suit) ? 'black' : 'red')} key={index}>{suit} {value}</li>);
   return (
     <ul className="list-group">
       <li className="list-group-item d-flex justify-content-between align-items-center">
-        Number of cards picked
+        Cards in the deck
         <span className="badge badge-primary badge-pill">{props.cards.length}</span>
       </li>
-      {lis.length < 8 && lis}
+      {lis.slice(0, 4)}
       {
-        lis.length >= 8 && (
-          <Fragment>
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              ...
-            </li>
-            {lis.slice(-4)}
-          </Fragment>
+        lis.length > 0 && (
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            ...
+          </li>
         )
       }
     </ul>
   );
 };
 
-CardsPicked.propTypes = {
+DeckList.propTypes = {
   cards: PropTypes.array.isRequired
 };

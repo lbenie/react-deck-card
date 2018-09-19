@@ -50,3 +50,13 @@
   font-size: 20px;
   padding: 15px 45px;
 }
+
+.list-group-item {
+  &.red {
+    color: red;
+  }
+
+  &.black {
+    color: black;
+  }
+}
