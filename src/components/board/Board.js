@@ -20,7 +20,12 @@ class Board extends Component {
         <div className="container pt-5">
           <div className="row mx-auto">
             <div className="col d-flex justify-content-center">
-              <button className="btn btn-outline-game mr-2" type="button" onClick={() => {this.props.shuffleDeck(this.props.deck);}}>Shuffle</button>
+              <button className="btn btn-outline-game mr-2" type="button" onClick={() => {
+                if (this.props.picks.length === 52) {
+                  return;
+                }
+                this.props.shuffleDeck(this.props.deck);}
+              }>Shuffle</button>
               <button className="btn btn-outline-game" type="button" onClick={() => {
                 if (this.props.picks.length === 52) {
                   return;
